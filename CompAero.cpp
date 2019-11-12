@@ -119,6 +119,24 @@ int main() {
 	
 	vector<double> deltax, deltaz; 
 
+	//for (i = 0; i <= imax_in; i++) {
+	//	// Going outwards
+	//	deltax.push_back(sqrx[i] - x[i]);
+	//	deltaz.push_back(sqrz[i] - z[i]);
+
+	//	vector<double> xj, zj;
+
+	//	for (j = 0; j <= jmax - 1; j++) {
+	//		xj.push_back(x[i] + (pow((j /(jmax - 1)), 2.0) * deltax[i]));
+	//		zj.push_back(z[i] + (pow((j / (jmax - 1)), 2.0) * deltaz[i]));
+	//		cout << "outwards " << xj[j] << ", " << zj[j] << endl;
+	//		myfile << xj[j] << ", " << zj[j] << endl;
+	//	}
+
+	//	xj.clear();
+	//	zj.clear();
+	//}
+
 	for (i = 0; i <= imax_in; i++) {
 		// Going outwards
 		deltax.push_back(sqrx[i] - x[i]);
@@ -127,7 +145,7 @@ int main() {
 		vector<double> xj, zj;
 
 		for (j = 0; j <= jmax - 1; j++) {
-			xj.push_back(x[i] + (pow((j /(jmax - 1)), 2.0) * deltax[i]));
+			xj.push_back(x[i] + (pow((j / (jmax - 1)), 2.0) * deltax[i]));
 			zj.push_back(z[i] + (pow((j / (jmax - 1)), 2.0) * deltaz[i]));
 			cout << "outwards " << xj[j] << ", " << zj[j] << endl;
 			myfile << xj[j] << ", " << zj[j] << endl;
@@ -163,7 +181,7 @@ int main() {
 		zj.clear();
 		
 	}
-	
+
 	myfile.close();
 	return 0;
 }
